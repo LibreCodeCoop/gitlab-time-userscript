@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         GitLab Total Time
-// @namespace    https://github.com/vitormattos/
+// @namespace    https://github.com/LibreCodeCoop/gitlab-time-userscript/
 // @version      0.1
 // @description  Add total time to header of lists on GitLab boards
 // @author       Vitor Mattos
