@@ -1,16 +1,17 @@
 // ==UserScript==
-// @name         GitLab Total Time
-// @namespace    https://github.com/LibreCodeCoop/gitlab-time-userscript/
-// @version      0.1
-// @description  Add total time to header of lists on GitLab boards
-// @author       Vitor Mattos
-// @supportURL   https://github.com/LibreCodeCoop/gitlab-time-userscript/issues
-// @license      AGPL-3.0-or-later
-// @match        http*://*/*/boards
-// @match        http*://*/*/boards?*
-// @match        http*://*/*/boards/*
-// @icon         https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png
-// @require      https://code.jquery.com/jquery-3.6.0.min.js
+// @name            GitLab Total Time
+// @namespace       https://github.com/LibreCodeCoop/gitlab-time-userscript/
+// @version         0.1
+// @description     Add total time to header of lists on GitLab boards
+// @author          Vitor Mattos
+// @supportURL      https://github.com/LibreCodeCoop/gitlab-time-userscript/issues
+// @contributionURL https://patreon.com/librecode
+// @license         AGPL-3.0-or-later
+// @match           http*://*/*/boards
+// @match           http*://*/*/boards?*
+// @match           http*://*/*/boards/*
+// @icon            https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png
+// @require         https://code.jquery.com/jquery-3.6.0.min.js
 // ==/UserScript==
 
 function listTotalTime() {
