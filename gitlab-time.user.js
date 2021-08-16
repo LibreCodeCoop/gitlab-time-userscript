@@ -7,6 +7,7 @@
 // @supportURL      https://github.com/LibreCodeCoop/gitlab-time-userscript/issues
 // @contributionURL https://patreon.com/librecode
 // @license         AGPL-3.0-or-later
+// @match           https://gitlab.com/*/*/boards/*
 // @match           http*://*/*/boards
 // @match           http*://*/*/boards?*
 // @match           http*://*/*/boards/*
