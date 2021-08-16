@@ -4,6 +4,7 @@
 // @version      0.1
 // @description  Add total time to header of lists on GitLab boards
 // @author       Vitor Mattos
+// @supportURL   https://github.com/LibreCodeCoop/gitlab-time-userscript/issues
 // @license      AGPL-3.0-or-later
 // @match        http*://*/*/boards
 // @match        http*://*/*/boards?*
