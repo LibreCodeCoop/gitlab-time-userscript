@@ -4,7 +4,7 @@ GitLab UserScripts to enhance usability:
 
 Add total time to list headers on GitLab boards.
 
-<img src="assets/print-01.png" />
+<img src="assets/video-01.gif" />
 
 # How to use
 
