@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Add total time to header of lists on GitLab boards
 // @author       Vitor Mattos
-// @license      AGPL-v3.0+
+// @license      AGPL-3.0-or-later
 // @match        http*://*/*/boards
 // @match        http*://*/*/boards?*
 // @match        http*://*/*/boards/*
