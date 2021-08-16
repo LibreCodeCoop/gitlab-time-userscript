@@ -8,7 +8,7 @@
 // @match        http*://*/*/boards?*
 // @match        http*://*/*/boards/*
 // @icon         https://gitlab.com/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png
-// @require      https://code.jquery.com/jquery-3.4.1.min.js
+// @require      https://code.jquery.com/jquery-3.6.0.min.js
 // ==/UserScript==
 
 function listTotalTime() {
