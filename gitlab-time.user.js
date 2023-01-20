@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            GitLab Total Time
 // @namespace       https://github.com/LibreCodeCoop/gitlab-time-userscript/
-// @version         0.1
+// @version         0.2
 // @description     Add total time to header of lists on GitLab boards
 // @author          Vitor Mattos
 // @supportURL      https://github.com/LibreCodeCoop/gitlab-time-userscript/issues
@@ -26,22 +26,46 @@ function listTotalTime() {
 
         timeElement.attr('time_m', 0)
         timeElement.attr('time_h', 0)
+        timeElement.attr('time_d', 0)
     });
 
     $('time:not([datetime]').each(function() {
         var countElement = $(this).closest('div.board-inner').find('span.list-total-time');
         var time = $(this).text()
-        var type = time.slice(-1)
-        time = time.slice(0, -1)
-        countElement.attr('time_' + type, parseInt(countElement.attr('time_' + type)) + parseInt(time))
-    })
+        var timeArray = time.split(" ")
+        for (var i = 0; i < timeArray.length; i++) {
+            var type = timeArray[i].slice(-1);
+            time = timeArray[i].slice(0, -1);
+            if (type === "d") {
+                countElement.attr(
+                    "time_d",
+                    parseInt(countElement.attr("time_d")) + parseInt(time)
+                );
+            } else if (type === "h") {
+                countElement.attr(
+                    "time_h",
+                    parseInt(countElement.attr("time_h")) + parseInt(time)
+                );
+            } else if (type === "m") {
+                countElement.attr(
+                    "time_m",
+                    parseInt(countElement.attr("time_m")) + parseInt(time)
+                );
+            }
+        }
+    });
 
     $('span.list-total-time').each(function() {
         var min = parseInt($(this).attr('time_m'))
+        var hour = parseInt($(this).attr('time_h'));
+        var day = parseInt($(this).attr('time_d')) * 8;
+        hour += day;
         if (min >= 60) {
-            $(this).attr('time_h', parseInt($(this).attr('time_h')) + min / 60)
-            $(this).attr('time_m', parseInt($(this).attr('time_m')) + min % 60)
+            hour += min / 60;
+            min = min % 60;
         }
+        $(this).attr('time_h', hour)
+        $(this).attr('time_m', min)
         var minPad = $(this).attr('time_m')
         minPad = ('00' + minPad).slice(-2)
         $(this).html(
