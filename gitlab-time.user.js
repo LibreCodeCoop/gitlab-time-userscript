@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            GitLab Total Time
 // @namespace       https://github.com/LibreCodeCoop/gitlab-time-userscript/
-// @version         0.2
+// @version         0.3
 // @description     Add total time to header of lists on GitLab boards
 // @author          Vitor Mattos
 // @supportURL      https://github.com/LibreCodeCoop/gitlab-time-userscript/issues
@@ -30,7 +30,7 @@ function listTotalTime() {
     });
 
     $('time:not([datetime]').each(function() {
-        var countElement = $(this).closest('div.board-inner').find('span.list-total-time');
+        var countElement = $(this).closest('div.board').find('span.list-total-time');
         var time = $(this).text()
         var timeArray = time.split(" ")
         for (var i = 0; i < timeArray.length; i++) {
@@ -69,7 +69,7 @@ function listTotalTime() {
         var minPad = $(this).attr('time_m')
         minPad = ('00' + minPad).slice(-2)
         $(this).html(
-            '<svg role="img" aria-hidden="true" class="gl-mr-2 gl-icon s16" data-testid="hourglass-icon"><use href="/assets/icons-05c4d4d8f3cc1fe0f22064d47d6a57d254ff9686a08abb74993ade21581e46f8.svg#hourglass"></use></svg>'
+            '<svg role="img" aria-hidden="true" class="gl-mr-2 gl-icon s14" data-testid="hourglass-icon"><use href="/assets/icons-ffa14d1d14478de17bd5c7220bf466194ad3bc99589858dae76a86bc89017324.svg#hourglass"></use></svg>'
             + $(this).attr('time_h')
             + ':'
             + minPad
@@ -79,10 +79,10 @@ function listTotalTime() {
 
 $(document).ready(function() {
     setTimeout(function () {
-        $('<div class="gl-ml-3 gl-display-flex gl-align-items-center"><button title="" data-qa-selector="boards_config_button" type="button" class="btn btn-default btn-md gl-button" id="refresh-list-time"><!----> <!---->  <span class="gl-button-text">Refresh times</span></button></div>').insertAfter($('[data-testid="boards-create-list"]'));
+        $('<div class="gl-ml-3 gl-display-flex gl-align-items-center"><button title="" data-qa-selector="boards_config_button" type="button" class="btn btn-default btn-md gl-button" id="refresh-list-time"><!----> <!---->  <span class="gl-button-text">Refresh times</span></button></div>').insertBefore($('[data-testid="board-options-dropdown"]'));
 
-        $('#refresh-list-time').on("click", function(){
-            listTotalTime()
-        })
-    }, 1000)
+        $(document).on("click", "#refresh-list-time", function() {
+            listTotalTime();
+        });
+    }, 1000);
 });
